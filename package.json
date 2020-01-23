@@ -1,26 +1,44 @@
 {
   "license": "UNLICENSED",
+  "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir dist",
-    "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
-    "check-types": "tsc",
-    "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\"",
-    "format": "npm run prettier -- --write",
-    "check-format": "npm run prettier -- --list-different",
-    "validate": "npm-run-all --parallel check-types check-format lint build"
+    "dev": "webpack-serve",
+    "build": "webpack --mode=production",
+    "postbuild": "cp ./public/index.html ./dist/index.html",
+    "start": "serve --no-clipboard --listen 8080 dist",
+    "lint": "eslint .",
+    "format": "prettier \"**/*.js\" --write",
+    "validate": "npm run lint && npm run build",
+    "setup": "npm run setup && npm run validate"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^2.0.0",
-    "eslint": "^6.1.0",
-    "eslint-config-prettier": "^6.0.0",
-    "husky": "^3.0.2",
-    "lint-staged": "^9.2.1",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^1.18.2",
-    "typescript": "^3.5.3"
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/plugin-proposal-class-properties": "7.0.0-beta.51",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.51",
+    "@babel/plugin-syntax-dynamic-import": "7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
+    "@babel/preset-react": "^7.0.0-beta.51",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-loader": "^8.0.0-beta.4",
+    "babel-plugin-emotion": "^9.2.4",
+    "css-loader": "^0.28.11",
+    "eslint": "^5.0.1",
+    "eslint-config-kentcdodds": "^14.0.0",
+    "file-loader": "^1.1.11",
+    "prettier": "^1.13.7",
+    "prop-types": "^15.6.2",
+    "serve": "^9.1.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-serve": "^1.0.4"
+  },
+  "dependencies": {
+    "emotion": "^9.2.4",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-emotion": "^9.2.4",
+    "react-loadable": "^5.4.0",
+    "react-point": "^3.0.1"
   }
 }
