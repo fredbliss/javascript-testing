@@ -6,6 +6,7 @@ import * as themes from '../src/themes'
 
 //second argument uses destructuring assignment syntax.  see
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+//or https://simonsmith.io/destructuring-objects-as-function-parameters-in-es6
 function render(ui, {theme = themes.dark, ...options} = {}) {
   function Wrapper({children}) {
     return <ThemeProvider theme={theme}>{children}</ThemeProvider>
