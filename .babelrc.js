@@ -5,13 +5,8 @@ module.exports = {
   presets: [
     ['@babel/preset-env', {modules: isTest ? 'commonjs' : false}],
     '@babel/preset-react',
-  ],
-  plugins: [
-    '@babel/plugin-syntax-dynamic-import',
-    '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-proposal-object-rest-spread',
     [
-      'babel-plugin-emotion',
+      '@emotion/babel-preset-css-prop',
       {
         hoist: isProd,
         sourceMap: !isProd,
@@ -19,6 +14,6 @@ module.exports = {
         labelFormat: '[filename]--[local]',
       },
     ],
-    'react-loadable/babel',
-  ].filter(Boolean),
+  ],
+  plugins: ['@babel/plugin-transform-runtime'],
 }

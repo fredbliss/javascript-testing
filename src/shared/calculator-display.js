@@ -12,7 +12,6 @@ function CalculatorDisplay({value, ...props}) {
   return (
     <div
       {...props}
-      id="calculator-display"
       css={{
         position: 'relative',
         color: 'white',

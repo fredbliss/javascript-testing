@@ -20,7 +20,10 @@ module.exports = {
         test: /\.module\.css$/,
         use: [
           {loader: 'style-loader'},
-          {loader: 'css-loader', options: {modules: true, camelCase: true}},
+          {
+            loader: 'css-loader',
+            options: {modules: true, localsConvention: 'camelCaseOnly'},
+          },
         ],
       },
       {
@@ -34,11 +37,8 @@ module.exports = {
       },
     ],
   },
-}
-
-if (process.env.WEBPACK_SERVE) {
-  module.exports.mode = 'development'
-  module.exports.serve = {
-    content: path.join(__dirname, './public'),
-  }
+  devServer: {
+    contentBase: path.join(__dirname, './public'),
+    historyApiFallback: true,
+  },
 }
