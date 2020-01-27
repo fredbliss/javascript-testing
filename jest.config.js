@@ -18,5 +18,9 @@ module.exports = {
       lines: 100,
     },
   },
-  projects: ['./test/jest.client.js', './test/jest.server.js'], //multi-envrionment testing!
+  projects: [
+    './test/jest.lint.js',
+    './test/jest.client.js',
+    './test/jest.server.js',
+  ], //multi-envrionment testing!
 }
