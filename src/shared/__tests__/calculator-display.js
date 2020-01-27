@@ -1,9 +1,12 @@
 import React from 'react'
 import {render} from '../../../test/calculator-test-utils'
+import {light} from '../../themes'
 import CalculatorDisplay from '../calculator-display'
 
 test('renders', () => {
-  const {container, rerender} = render(<CalculatorDisplay value="0" />)
+  const {container, rerender} = render(<CalculatorDisplay value="0" />, {
+    theme: light,
+  })
 
   rerender(<CalculatorDisplay value="1" />)
 
@@ -15,8 +18,8 @@ test('renders', () => {
       -webkit-flex: 1;
       -ms-flex: 1;
       flex: 1;
-      color: white;
-      background: #1c191c;
+      color: #1c191c;
+      background: white;
     }
 
     <div
