@@ -28,7 +28,7 @@
   "lint-staged": {
     "**/*.+(js|json|css|html|md)": [
       "prettier",
-      "jest",
+      "jest -findRelatedTests",
       "git add"
     ]
   },
